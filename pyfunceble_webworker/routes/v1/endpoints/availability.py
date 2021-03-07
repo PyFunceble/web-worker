@@ -51,10 +51,8 @@ License:
     limitations under the License.
 """
 
-from typing import Optional
 
-from fastapi import APIRouter, Body, Depends, Query
-from fastapi.encoders import jsonable_encoder
+from fastapi import APIRouter, Body, Depends
 from PyFunceble import (
     DomainAndIPAvailabilityChecker,
     DomainAvailabilityChecker,

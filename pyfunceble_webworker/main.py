@@ -55,17 +55,16 @@ import importlib.resources
 import logging
 import os
 import secrets
-import time
 
 import inflection
+import PyFunceble.facility
 import PyFunceble.storage
 import requests
-import PyFunceble.facility
-from PyFunceble.config.loader import ConfigLoader
-from fastapi import FastAPI, Request, params
+from fastapi import FastAPI
 from fastapi.openapi.utils import get_openapi
 from fastapi.responses import RedirectResponse
 from fastapi_utils.tasks import repeat_every
+from PyFunceble.config.loader import ConfigLoader
 from PyFunceble.downloader.iana import IANADownloader
 from PyFunceble.downloader.ipv4_reputation import IPV4ReputationDownloader
 from PyFunceble.downloader.public_suffix import PublicSuffixDownloader
@@ -78,15 +77,14 @@ from PyFunceble.helpers.merge import Merge
 from starlette.middleware.cors import CORSMiddleware
 
 import pyfunceble_webworker.storage
-from pyfunceble_webworker import __session_id__, __version__
+from pyfunceble_webworker import __version__
 from pyfunceble_webworker.core.defaults import assets as assets_defaults
+from pyfunceble_webworker.core.defaults import pyfunceble as pyfunceble_defaults
 from pyfunceble_webworker.core.defaults import routes as routes_defaults
 from pyfunceble_webworker.core.settings import core_settings
 from pyfunceble_webworker.models.info import CoreLocation
 from pyfunceble_webworker.models.links import Links
-from pyfunceble_webworker.models.message import Message
 from pyfunceble_webworker.routes.v1.api import api_router as v1_api_router
-from pyfunceble_webworker.core.defaults import pyfunceble as pyfunceble_defaults
 
 env_var_helper = EnvironmentVariableHelper()
 

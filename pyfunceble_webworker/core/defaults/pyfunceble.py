@@ -53,9 +53,5 @@ License:
 """
 
 PERSISTENT_CONFIG = {
-    "cli_testing": {
-        "autocontinue": False,
-        "inactive_db": False,
-        "complements": False
-    }
+    "cli_testing": {"autocontinue": False, "inactive_db": False, "complements": False}
 }

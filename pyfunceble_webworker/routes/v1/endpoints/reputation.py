@@ -98,7 +98,7 @@ def domain_reputation(
     description="Checks the reputation of the given URL against our URL "
     "reputation checker.",
 )
-def domain_reputation(
+def url_reputation(
     *,
     subject: str = Body(
         ..., embed=True, summary="Subject", description="The subject to work with."

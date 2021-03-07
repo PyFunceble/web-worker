@@ -51,10 +51,9 @@ License:
     limitations under the License.
 """
 
-from typing import List, Optional
+from typing import List
 
 from fastapi import APIRouter, Body, Query
-
 from PyFunceble.converter.subject2complements import Subject2Complements
 
 router = APIRouter()

@@ -63,9 +63,15 @@ from pyfunceble_webworker.models.info import CoreLocation, CoreVersion, SystemIn
 from pyfunceble_webworker.models.links import (
     DocumentationURL,
     Links,
-    ProjectsURL, SupportURL,
+    ProjectsURL,
+    SupportURL,
 )
-from pyfunceble_webworker.routes.v1.endpoints import availability, reputation, syntax, tools
+from pyfunceble_webworker.routes.v1.endpoints import (
+    availability,
+    reputation,
+    syntax,
+    tools,
+)
 
 api_router = APIRouter()
 

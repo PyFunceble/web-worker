@@ -53,7 +53,6 @@ License:
 
 from typing import Optional
 
-from inflection import camelize
 from pydantic import BaseModel
 
 
