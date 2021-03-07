@@ -9,11 +9,79 @@ If you don't know what PyFunceble is, please report to the
 
 ___________________________________________
 
+Installation
+------------
+
+Manual
+""""""
+
+To manually install this project, simply run the following:
+
+::
+
+    $ git clone https://github.com/PyFunceble/web-worker.git pyfunceble-web-worker
+    $ cd pyfunceble-web-worker
+    $ pip3 install --user PyFunceble-dev uvicorn
+    $ pip3 install --user .
+
+Docker (self-build)
+"""""""""""""""""""
+
+To build the Dockerfile provided, simply run or adapt the following:
+
+::
+
+    $ docker build -t pyfunceble_webworker -f [Dockerfile] .
+
+By default, this project will be built against the latest available version of
+PyFunceble. If you want to change that behavior, simply add the following
+build arguments:
+
+::
+
+    --build-arg PYFUNCEBLE_VERSION=[PyFunceble Version]
+
+___________________________________________
+
+Usage
+-----
+
+Please choose your method to start the project. Once the project running you
+may visit the :code:`/v1/docs` or :code:`/v1/rdocs` endpoint from your browser
+to document yourself about all available endpoints.
+
+Manual
+""""""
+
+To start the project, simply run or adapt the following:
+
+::
+
+    $ cd pyfunceble-web-worker
+    $ uvicorn pyfunceble_webworker.main:app
+
+Docker
+""""""
+
+To start the project, simply run or adapt the following:
+
+::
+
+    $ docker run -v pyfunceble-worker-data:/data -d --name [my-awesome-name] -p [my-port]:80 pyfunceble_webworker:latest
+
+___________________________________________
+
+Configuration
+-------------
+
 Supported Environment Variables
 -------------------------------
 
 In addition to any PyFunceble environment variable, the following are also
 available for you to use.
+
+If you chose to manually run this project, you are invited to use a
+:code:`.env` file to declare your environment variables.
 
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------+
 | Name                        | Description                                                                                                         |
@@ -35,6 +103,29 @@ available for you to use.
 |                             |                                                                                                                     |
 |                             | Default: /data under docker container, current location otherwise.                                                  |
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------+
+
+
+PyFunceble
+""""""""""
+
+To configure PyFunceble, simply create a :code:`.PyFunceble.overwrite.yaml`
+file at the root of the given data directory.
+The data directory is by default :code:`/data` under the docker container.
+
+The :code:`.PyFunceble.overwrite.yaml`, will be automatically merged into the
+PyFunceble configuration module. Meaning that you can define anything that
+PyFunceble knows in there.
+
+For example:
+
+::
+
+    dns:
+        server:
+            - 192.168.1.1
+
+Will overwrite the default DNS server read by PyFunceble.
+
 
 ___________________________________________
 
