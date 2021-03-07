@@ -11,7 +11,7 @@ COPY . /app/app
 
 RUN cd /app/app && \
     pip install . && \
-    if [[ -z "$PYFUNCEBLE_VERSION" ]]; then pip install --pre PyFunceble-dev ; else pip install PyFunceble-dev==${PYFUNCEBLE_VERSION} ; fi && \
+    if [ -z "$PYFUNCEBLE_VERSION" ]; then pip install --pre PyFunceble-dev ; else pip install PyFunceble-dev==${PYFUNCEBLE_VERSION} ; fi && \
     cd ..
 
 WORKDIR /app
