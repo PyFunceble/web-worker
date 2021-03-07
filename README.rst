@@ -62,8 +62,8 @@ To start the project, simply run or adapt the following:
     $ cd pyfunceble-web-worker
     $ uvicorn pyfunceble_webworker.main:app
 
-Docker
-""""""
+Docker (self-built)
+"""""""""""""""""""
 
 To start the project, simply run or adapt the following:
 
