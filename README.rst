@@ -46,9 +46,11 @@ ___________________________________________
 Usage
 -----
 
-Please choose your method to start the project. Once the project running you
-may visit the :code:`/v1/docs` or :code:`/v1/rdocs` endpoint from your browser
-to document yourself about all available endpoints.
+Please choose your method to start the project.
+
+Once the project running, you may visit the :code:`/v1/docs`
+or :code:`/v1/rdocs` endpoint from your browser to document yourself about
+all available endpoints.
 
 Manual
 """"""
