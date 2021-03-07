@@ -7,8 +7,6 @@ you through a Web API.
 If you don't know what PyFunceble is, please report to the
 `PyFunceble repository`_.
 
-.. _PyFunceble repository: https://github.com/funilrys/PyFunceble
-
 ___________________________________________
 
 Supported Environment Variables
@@ -51,7 +49,7 @@ This project helps you and/or you like it? Support me!
 
 GitHub Sponsor
 """"""""""""""
-`@funilrys`_ is part of the GitHub Sponsor program!
+I am part of the GitHub Sponsor program!
 
 *GitHub will match all donation for the coming months!*
 
@@ -72,8 +70,6 @@ Single donations are welcome too!
     :height: 70px
 
 `Buy me a coffee`_!
-
-
 
 ___________________________________________
 
@@ -96,3 +92,7 @@ License
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+
+.. _PyFunceble repository: https://github.com/funilrys/PyFunceble
+.. _Sponsor me: https://github.com/sponsors/funilrys
+.. _Buy me a coffee: https://ko-fi.com/V7V3EH2Y
