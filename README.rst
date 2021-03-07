@@ -51,8 +51,6 @@ GitHub Sponsor
 """"""""""""""
 I am part of the GitHub Sponsor program!
 
-*GitHub will match all donation for the coming months!*
-
 .. image:: https://github.com/PyFunceble/logo/raw/master/pyfunceble_github.png
     :target: https://github.com/sponsors/funilrys
     :height: 70px
