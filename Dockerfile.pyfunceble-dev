@@ -1,0 +1,19 @@
+FROM tiangolo/uvicorn-gunicorn:python3.8
+
+LABEL maintainer="Nissar Chababy <contact@funilrys.com>"
+
+ARG PYFUNCEBLE_VERSION=""
+ENV MODULE_NAME="pyfunceble_webworker.main"
+ENV PYFUNCEBLE_WORKERS_DATA_DIR=/data
+ENV BALANCED_PYFUNCEBLE_WORKERS=true
+
+COPY . /app/app
+
+RUN cd /app/app && \
+    pip install . && \
+    if [[ -z "$PYFUNCEBLE_VERSION" ]]; then pip install --pre PyFunceble-dev ; else pip install PyFunceble-dev==${PYFUNCEBLE_VERSION} ; fi && \
+    cd ..
+
+WORKDIR /app
+
+VOLUME [ "/data" ]
