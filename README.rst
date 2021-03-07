@@ -114,7 +114,7 @@ The data directory is by default :code:`/data` under the docker container.
 
 The :code:`.PyFunceble.overwrite.yaml`, will be automatically merged into the
 PyFunceble configuration module. Meaning that you can define anything that
-PyFunceble knows in there.
+PyFunceble knows.
 
 For example:
 
