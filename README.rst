@@ -11,6 +11,21 @@ If you don't know what PyFunceble is, please report to the
 
 ___________________________________________
 
+Supported Environment Variables
+-------------------------------
+
+In addition to any PyFunceble environment variable, the following are also
+available for you to use.
+
+| Name                        | Description                                                                                                                         |
+|-----------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| BACKEND_CORS_ORIGINS        | Allows CORS origin only through the given list of URLs.    Default: None                                                            |
+| ALLOW_WHOIS_LOOKUP          | Allows the usage of WHOIS lookups to gather the status - when applicable.   Default: False                                          |
+| ALLOW_WHOIS_LOOKUP_PARAM    | Allows end-user to define and control if they want to use the WHOIS lookup to gather the status - when applicable.   Default: false |
+| PYFUNCEBLE_WORKERS_DATA_DIR | Sets the data directory.  Default: /data under docker container, current location otherwise.                                        |
+
+___________________________________________
+
 Supporting the project
 ----------------------
 
