@@ -145,7 +145,7 @@ with importlib.resources.path(
         logger_data["handlers"]["file"]["filename"],
     )
 
-    logging.config.dictConfig(DictHelper.from_yaml_file(str(logger_config_path)))
+    logging.config.dictConfig(logger_data)
 
 
 if core_settings.BACKEND_CORS_ORIGINS:
