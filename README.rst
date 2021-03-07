@@ -12,6 +12,8 @@ ___________________________________________
 Installation
 ------------
 
+**Please be informed that we recommend you to use docker as much as possible.**
+
 Manual
 """"""
 
