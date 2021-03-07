@@ -91,7 +91,9 @@ from pyfunceble_webworker.core.defaults import pyfunceble as pyfunceble_defaults
 env_var_helper = EnvironmentVariableHelper()
 
 if not env_var_helper.set_name("PYFUNCEBLE_WORKERS_DATA_DIR").exists():
-    raise RuntimeError("Could not define or find configuration directory.")
+    raise RuntimeError(
+        "Could not find PYFUNCEBLE_WORKERS_DATA_DIR environment variable."
+    )
 
 pyfunceble_webworker.storage.CONFIG_DIRECTORY = env_var_helper.get_value()
 
