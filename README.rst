@@ -75,7 +75,7 @@ Configuration
 -------------
 
 Supported Environment Variables
--------------------------------
+"""""""""""""""""""""""""""""""
 
 In addition to any PyFunceble environment variable, the following are also
 available for you to use.
