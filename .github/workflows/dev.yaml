@@ -1,0 +1,86 @@
+name: Deploy PyFunceble Web-Worker
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  schedule:
+    - cron: "0 2 * * *"
+
+jobs:
+  lint:
+    name: Lint PyFunceble Web-Worker
+
+    runs-on: "ubuntu-latest"
+
+    strategy:
+      fail-fast: false
+      matrix:
+        python_version:
+          - "3.9.1"
+
+    steps:
+      - uses: actions/checkout@v2
+        name: Clone repository
+
+      - name: Set up Python ${{ matrix.python_version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python_version }}
+
+      - name: Install dependencies
+        run: |
+          pip install flake8
+
+      - name: Lint with Flake8
+        run: flake8 pyfunceble_webworker
+
+  push_to_github_packages:
+    needs: lint
+
+    name: Build and publish docker image to GitHub Packages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Get project version
+        run:
+          echo "WEB_WORKER_VERSION=$(python setup.py --version)" >> $GITHUB_ENV
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Convert repository to lower case
+        id: repository_name_conversion
+        uses: ASzc/change-string-case-action@v1
+        with:
+          string: ${{ github.repository }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.REGISTRY_TOKEN }}
+
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile.pyfunceble-dev
+          push: true
+          tags: |
+            ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker:latest
+            ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker:${{ github.sha }}
+            ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker:${{ env.WEB_WORKER_VERSION }}
+          labels: |
+            org.opencontainers.image.title=${{ github.event.repository.name }}
+            org.opencontainers.image.description=${{ github.event.repository.description }}
+            org.opencontainers.image.url=${{ github.event.repository.html_url }}
+            org.opencontainers.image.source=https://github.com/${{ steps.repository_name_conversion.outputs.lowercase }}
