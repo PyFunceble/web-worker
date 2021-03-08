@@ -9,6 +9,42 @@ If you don't know what PyFunceble is, please report to the
 
 ___________________________________________
 
+Differences with the PyFunceble CLI
+-----------------------------------
+
+This project is not intended to fully replace the official PyFunceble Command
+Line Interface provided by `@funilrys`_.
+
+This project in intended for those who don't necessarily use Python for their
+projects, but still want to use PyFunceble to check the availability, syntax, or
+reputation of a domain, IP, or URL. In other words, this project only provides
+the core functions of PyFunceble, but behind a Web API.
+
+When you use the :code:`PyFunceble` CLI, it is just
+an implementation of functionalities on top of the core ideas of PyFunceble.
+In fact, if one wants to implement or create their CLI on top of the core
+capabilities of PyFunceble, they are welcome to do so. They can even submit it
+so that it may become the standard or an alternative documented implementation.
+
+You won't find the following inside this project (to only list a few):
+
+- Almost everything specially implemented by the CLI of PyFunceble.
+    - The output file(s).
+    - The inactive datasets.
+    - The auto continue datasets.
+    - All form of decoding (or output) of any form of input: hosts, AdBlock, RPZ,
+      Wildcard, etc.
+    - The continuous integration module.
+
+Instead, you will find the following:
+
+- Web endpoints to test the availability of a domain, IP, or URL.
+- Web endpoints to test the syntax of a domain, IP, or URL.
+- Web endpoints to test the reputation of a domain, IP, or URL.
+- Web endpoint to get the complement of a given subject.
+
+___________________________________________
+
 Installation
 ------------
 
@@ -208,3 +244,4 @@ License
 .. _PyFunceble repository: https://github.com/funilrys/PyFunceble
 .. _Sponsor me: https://github.com/sponsors/funilrys
 .. _Buy me a coffee: https://ko-fi.com/V7V3EH2Y
+.. _@funilrys: https://github.com/funilrys
