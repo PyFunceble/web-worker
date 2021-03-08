@@ -184,7 +184,7 @@ For example:
         server:
             - 192.168.1.1
 
-Will overwrite the default DNS server read by PyFunceble.
+Will overwrite the DNS server used by PyFunceble with the given one.
 
 
 ___________________________________________
