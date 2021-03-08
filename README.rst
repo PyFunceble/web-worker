@@ -15,7 +15,7 @@ Differences with the PyFunceble CLI
 This project is not intended to fully replace the official PyFunceble Command
 Line Interface provided by `@funilrys`_.
 
-This project in intended for those who don't necessarily use Python for their
+This project is intended for those who don't necessarily use Python for their
 projects, but still want to use PyFunceble to check the availability, syntax, or
 reputation of a domain, IP, or URL. In other words, this project only provides
 the core functions of PyFunceble, but behind a Web API.
