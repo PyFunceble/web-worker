@@ -59,7 +59,8 @@ To manually install this project, simply run the following:
 
     $ git clone https://github.com/PyFunceble/web-worker.git pyfunceble-web-worker
     $ cd pyfunceble-web-worker
-    $ pip3 install --user PyFunceble-dev uvicorn[standard]
+    $ pip3 install --user --pre PyFunceble-dev
+    $ pip3 install --user uvicorn[standard]
     $ pip3 install --user .
 
 GitHub Packages
