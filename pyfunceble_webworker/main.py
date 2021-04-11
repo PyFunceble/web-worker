@@ -101,6 +101,7 @@ PyFunceble.storage.CONFIG_DIRECTORY = os.path.join(
 )
 
 DirectoryHelper(PyFunceble.storage.CONFIG_DIRECTORY).create()
+DirectoryHelper(pyfunceble_webworker.storage.CONFIG_DIRECTORY).create()
 
 file_helper = FileHelper()
 pyfunceble_config_loader = ConfigLoader()
@@ -117,6 +118,8 @@ if file_helper.set_path(
         pyfunceble_config_loader.custom_config = local
     else:
         pyfunceble_config_loader.custom_config = dict()
+else:
+    file_helper.write("")
 
 pyfunceble_config_loader.custom_config = Merge(
     pyfunceble_defaults.PERSISTENT_CONFIG
