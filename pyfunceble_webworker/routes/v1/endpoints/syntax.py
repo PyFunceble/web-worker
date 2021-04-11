@@ -56,7 +56,7 @@ from PyFunceble import DomainSyntaxChecker, IPSyntaxChecker, URLSyntaxChecker
 
 from pyfunceble_webworker.models.syntax import SyntaxStatus
 
-router = APIRouter()
+router = APIRouter(prefix="/syntax")
 
 
 @router.post(

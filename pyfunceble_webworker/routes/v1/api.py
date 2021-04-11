@@ -68,9 +68,9 @@ from pyfunceble_webworker.models.links import (
 )
 from pyfunceble_webworker.routes.v1.endpoints import (
     availability,
+    converter,
     reputation,
     syntax,
-    tools,
 )
 
 api_router = APIRouter()
@@ -133,9 +133,7 @@ def info() -> SystemInfo:
     )
 
 
-api_router.include_router(
-    availability.router, prefix="/availability", tags=["availability"]
-)
-api_router.include_router(syntax.router, prefix="/syntax", tags=["syntax"])
-api_router.include_router(reputation.router, prefix="/reputation", tags=["reputation"])
-api_router.include_router(tools.router, prefix="/tools", tags=["tools"])
+api_router.include_router(availability.router, tags=["availability"])
+api_router.include_router(syntax.router, tags=["syntax"])
+api_router.include_router(reputation.router, tags=["reputation"])
+api_router.include_router(converter.router, tags=["converter"])

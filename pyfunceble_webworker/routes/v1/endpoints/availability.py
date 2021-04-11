@@ -67,7 +67,7 @@ from pyfunceble_webworker.models.availability import (
     URLCheckerParams,
 )
 
-router = APIRouter()
+router = APIRouter(prefix="/availability")
 
 
 @router.post(

@@ -61,7 +61,7 @@ from PyFunceble import (
 
 from pyfunceble_webworker.models.reputation import CheckerParams, ReputationStatus
 
-router = APIRouter()
+router = APIRouter(prefix="/reputation")
 
 
 @router.post(
