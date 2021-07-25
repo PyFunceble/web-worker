@@ -32,9 +32,8 @@ You won't find the following inside this project (to only list a few):
     - The output file(s).
     - The inactive datasets.
     - The auto continue datasets.
-    - All form of decoding (or output) of any form of input: hosts, AdBlock, RPZ,
-      Wildcard, etc.
     - The continuous integration module.
+    - Any form of database.
 
 Instead, you will find the following:
 
@@ -42,6 +41,7 @@ Instead, you will find the following:
 - Web endpoints to test the syntax of a domain, IP, or URL.
 - Web endpoints to test the reputation of a domain, IP, or URL.
 - Web endpoint to get the complement of a given subject.
+- Web endpoint for the decoding or conversion from and to several formats.
 
 ___________________________________________
 
@@ -137,8 +137,15 @@ Configuration
 Supported Environment Variables
 """""""""""""""""""""""""""""""
 
-In addition to any PyFunceble environment variable, the following are also
-available for you to use.
+In addition to:
+
+- any PyFunceble environment variable
+- any `uvicorn-gunicorn-fastapi`_ environment variable - when using the docker image
+
+
+the following are available for you to use.
+
+
 
 If you chose to manually run this project, you are invited to use a
 :code:`.env` file to declare your environment variables.
@@ -164,6 +171,7 @@ If you chose to manually run this project, you are invited to use a
 |                             | Default: /data under docker container, current location otherwise.                                                  |
 +-----------------------------+---------------------------------------------------------------------------------------------------------------------+
 
+.. _uvicorn-gunicorn-fastapi: https://github.com/tiangolo/uvicorn-gunicorn-fastapi-docker#advanced-usage
 
 PyFunceble
 """"""""""
