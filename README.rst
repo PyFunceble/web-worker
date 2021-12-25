@@ -59,6 +59,11 @@ To manually install this project, simply run the following:
 
     $ git clone https://github.com/PyFunceble/web-worker.git pyfunceble-web-worker
     $ cd pyfunceble-web-worker
+
+    ## Install the version of PyFunceble you want.
+    ## Here it's the dev version of PyFunceble.
+    ## If you prefer the stable version run:
+    ##     $ pip3 install --user PyFunceble
     $ pip3 install --user --pre PyFunceble-dev
     $ pip3 install --user uvicorn[standard]
     $ pip3 install --user .
@@ -66,11 +71,23 @@ To manually install this project, simply run the following:
 GitHub Packages
 """""""""""""""
 
-To pull the docker image, simply run the following:
+This project provides 2 docker images that you can pull.
+
+1. :code:`ghcr.io/pyfunceble/web-worker/web-worker` is built with PyFunceble (stable)
+3. :code:`ghcr.io/pyfunceble/web-worker/web-worker-dev` is built with PyFunceble-dev
+
+
+To pull the image that has been built on top of PyFunceble (stable)
 
 ::
 
     $ docker pull ghcr.io/pyfunceble/web-worker/web-worker:latest
+
+To pull the image that has been built on top of PyFunceble-dev
+
+::
+
+    $ docker pull ghcr.io/pyfunceble/web-worker/web-worker-dev:latest
 
 Docker (self-build)
 """""""""""""""""""
