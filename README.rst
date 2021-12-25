@@ -78,13 +78,13 @@ This project provides 2 docker images that you can pull:
 2. :code:`ghcr.io/pyfunceble/web-worker/web-worker-dev` is built with PyFunceble-dev.
 
 
-To pull the image that has been built on top of PyFunceble (stable)
+To pull the image that has been built on top of PyFunceble (stable):
 
 ::
 
     $ docker pull ghcr.io/pyfunceble/web-worker/web-worker:latest
 
-To pull the image that has been built on top of PyFunceble-dev
+To pull the image that has been built on top of PyFunceble-dev:
 
 ::
 
@@ -157,7 +157,7 @@ Supported Environment Variables
 
 In addition to:
 
-- any PyFunceble environment variable
+- any `PyFunceble environment variable`_
 - any `uvicorn-gunicorn-fastapi`_ environment variable - when using the docker image
 
 
@@ -269,6 +269,7 @@ License
     limitations under the License.
 
 .. _PyFunceble repository: https://github.com/funilrys/PyFunceble
+.. _PyFunceble environment variable: https://pyfunceble.readthedocs.io/en/latest/usage/index.html#global-variables
 .. _Sponsor me: https://github.com/sponsors/funilrys
 .. _Buy me a coffee: https://ko-fi.com/V7V3EH2Y
 .. _@funilrys: https://github.com/funilrys
