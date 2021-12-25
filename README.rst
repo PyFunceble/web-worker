@@ -71,11 +71,11 @@ To manually install this project, simply run the following:
 GitHub Packages
 """""""""""""""
 
-This project provides 2 docker images that you can pull.
+This project provides 2 docker images that you can pull:
 
-1. :code:`ghcr.io/pyfunceble/web-worker/web-worker` is built with PyFunceble (stable)
+1. :code:`ghcr.io/pyfunceble/web-worker/web-worker` is built with PyFunceble (stable).
 
-2. :code:`ghcr.io/pyfunceble/web-worker/web-worker-dev` is built with PyFunceble-dev
+2. :code:`ghcr.io/pyfunceble/web-worker/web-worker-dev` is built with PyFunceble-dev.
 
 
 To pull the image that has been built on top of PyFunceble (stable)
