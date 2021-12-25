@@ -74,3 +74,4 @@ class StatusWhoisLookupRecord(BaseModel):
     subject: Optional[str] = None
     record: Optional[str] = None
     expiration_date: Optional[str] = None
+    registrar: Optional[str] = None

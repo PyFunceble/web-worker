@@ -178,6 +178,7 @@ class AvailabilityStatusExtended(AvailabilityStatusBase):
     url_syntax: Optional[bool] = None
 
     expiration_date: Optional[str] = None
+    registrar: Optional[str] = None
 
     status_before_extra_rules: Optional[str] = None
     status_after_extra_rules: Optional[str] = None
