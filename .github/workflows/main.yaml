@@ -76,6 +76,22 @@ jobs:
           file: Dockerfile.pyfunceble-dev
           push: true
           tags: |
+            ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker-dev:latest
+            ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker-dev:${{ github.sha }}
+            ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker-dev:${{ env.WEB_WORKER_VERSION }}
+          labels: |
+            org.opencontainers.image.title=${{ github.event.repository.name }}
+            org.opencontainers.image.description=${{ github.event.repository.description }}
+            org.opencontainers.image.url=${{ github.event.repository.html_url }}
+            org.opencontainers.image.source=https://github.com/${{ steps.repository_name_conversion.outputs.lowercase }}
+
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile.pyfunceble
+          push: true
+          tags: |
             ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker:latest
             ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker:${{ github.sha }}
             ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker:${{ env.WEB_WORKER_VERSION }}
