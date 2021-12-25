@@ -75,7 +75,7 @@ def domain_syntax(
     Checks the syntax of the given domain.
     """
 
-    return SyntaxStatus(**DomainSyntaxChecker(subject).get_status().to_dict())
+    return DomainSyntaxChecker(subject).get_status().to_dict()
 
 
 @router.post(
@@ -94,7 +94,7 @@ def ip_syntax(
     Checks the syntax of the given IP (v4 or v6).
     """
 
-    return SyntaxStatus(**IPSyntaxChecker(subject).get_status().to_dict())
+    return IPSyntaxChecker(subject).get_status().to_dict()
 
 
 @router.post(
@@ -113,4 +113,4 @@ def url_syntax(
     Checks the syntax of the given URL.
     """
 
-    return SyntaxStatus(**URLSyntaxChecker(subject).get_status().to_dict())
+    return URLSyntaxChecker(subject).get_status().to_dict()

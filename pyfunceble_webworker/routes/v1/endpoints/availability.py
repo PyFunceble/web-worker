@@ -93,8 +93,8 @@ def domain_availability(
     else:
         use_whois_lookup = core_settings.ALLOW_WHOIS_LOOKUP
 
-    return AvailabilityStatus(
-        **DomainAvailabilityChecker(
+    return (
+        DomainAvailabilityChecker(
             subject,
             use_extra_rules=params.use_extra_rules,
             use_whois_lookup=use_whois_lookup,
@@ -133,8 +133,8 @@ def url_availability(
     else:
         use_whois_lookup = core_settings.ALLOW_WHOIS_LOOKUP
 
-    return AvailabilityStatus(
-        **URLAvailabilityChecker(
+    return (
+        URLAvailabilityChecker(
             subject,
             use_extra_rules=False,
             use_whois_lookup=use_whois_lookup,
@@ -173,8 +173,8 @@ def ip_availability(
     else:
         use_whois_lookup = core_settings.ALLOW_WHOIS_LOOKUP
 
-    return AvailabilityStatus(
-        **IPAvailabilityChecker(
+    return (
+        IPAvailabilityChecker(
             subject,
             use_extra_rules=params.use_extra_rules,
             use_whois_lookup=use_whois_lookup,
@@ -213,8 +213,8 @@ def domain_ip_availability(
     else:
         use_whois_lookup = core_settings.ALLOW_WHOIS_LOOKUP
 
-    return AvailabilityStatus(
-        **DomainAndIPAvailabilityChecker(
+    return (
+        DomainAndIPAvailabilityChecker(
             subject,
             use_extra_rules=params.use_extra_rules,
             use_whois_lookup=use_whois_lookup,

@@ -82,8 +82,8 @@ def domain_reputation(
     Checks the reputation of the given domain.
     """
 
-    return ReputationStatus(
-        **DomainReputationChecker(
+    return (
+        DomainReputationChecker(
             subject, do_syntax_check_first=params.do_syntax_check_first
         )
         .get_status()
@@ -109,8 +109,8 @@ def url_reputation(
     Checks the reputation of the given URL.
     """
 
-    return ReputationStatus(
-        **URLReputationChecker(
+    return (
+        URLReputationChecker(
             subject, do_syntax_check_first=params.do_syntax_check_first
         )
         .get_status()
@@ -136,8 +136,8 @@ def domain_ip_reputation(
     Checks the reputation of the given domain or IP.
     """
 
-    return ReputationStatus(
-        **DomainAndIPReputationChecker(
+    return (
+        DomainAndIPReputationChecker(
             subject, do_syntax_check_first=params.do_syntax_check_first
         )
         .get_status()
@@ -163,10 +163,8 @@ def ip_reputation(
     Checks the reputation of the given IP.
     """
 
-    return ReputationStatus(
-        **IPReputationChecker(
-            subject, do_syntax_check_first=params.do_syntax_check_first
-        )
+    return (
+        IPReputationChecker(subject, do_syntax_check_first=params.do_syntax_check_first)
         .get_status()
         .to_dict()
     )
