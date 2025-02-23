@@ -1,4 +1,4 @@
-FROM tiangolo/uvicorn-gunicorn:python3.8
+FROM python:3.13
 
 LABEL maintainer="Nissar Chababy <contact@funilrys.com>"
 
@@ -7,15 +7,18 @@ ENV MODULE_NAME="pyfunceble_webworker.main"
 ENV PYFUNCEBLE_WORKERS_DATA_DIR=/data
 ENV BALANCED_PYFUNCEBLE_WORKERS=true
 ENV MAX_WORKERS=1
-ENV WEB_CONCURRENCY=1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-COPY . /app/app
+COPY . /pyfunceble_webworker
 
-RUN cd /app/app && \
+RUN cd /pyfunceble_webworker && \
     pip install . && \
     if [ -z "$PYFUNCEBLE_VERSION" ]; then pip install PyFunceble ; else pip install PyFunceble==${PYFUNCEBLE_VERSION} ; fi && \
     cd ..
 
-WORKDIR /app
+WORKDIR /pyfunceble_webworker
 
 VOLUME [ "/data" ]
+
+CMD ["fastapi", "run", "pyfunceble_webworker/main.py", "--port", "80", "--workers", "$MAX_WORKERS"]
