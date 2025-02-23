@@ -86,6 +86,50 @@ def get_requirements() -> List[str]:
     return list(result)
 
 
+def get_requirements(*, mode="standard"):
+    """
+    This function extract all requirements from requirements.txt.
+    """
+
+    mode2files = {
+        "standard": ["requirements.txt"],
+        "dev": ["requirements.dev.txt"],
+        "pyfunceble": ["requirements.pyf.txt"],
+        "pyf": ["requirements.pyf.txt"],
+        "pyfunceble-dev": ["requirements.pyfdev.txt"],
+        "pyf-dev": ["requirements.pyfdev.txt"],
+        "pyfdev": ["requirements.pyfdev.txt"],
+    }
+
+    ignored_modes_for_all = [
+        "dev",
+    ]
+
+    mode2files["full"] = [y for x in mode2files.values() for y in x]
+    mode2files["all"] = [
+        z for x, y in mode2files.items() for z in y if x not in ignored_modes_for_all
+    ]
+
+    result = set()
+
+    for file in mode2files[mode]:
+        with open(file, "r", encoding="utf-8") as file_stream:
+            for line in file_stream:
+                line = line.strip()
+
+                if not line or line.startswith("#"):
+                    continue
+
+                if "#" in line:
+                    line = line[: line.find("#")].strip()
+
+                if not line:
+                    continue
+
+                result.add(line)
+
+    return list(result)
+
 def get_version() -> str:
     """
     Provides the project version.
@@ -104,7 +148,7 @@ def get_long_description():
     Provides the long description.
     """
 
-    with open("README.rst", "r", encoding="utf-8") as file_stream:
+    with open("README.md", "r", encoding="utf-8") as file_stream:
         return file_stream.read()
 
 
@@ -114,8 +158,14 @@ if __name__ == "__main__":
         version=get_version(),
         python_requires=">=3.7, <4",
         install_requires=get_requirements(),
+        extras_require={
+            "dev": get_requirements(mode="dev"),
+            "full": get_requirements(mode="full"),
+            "all": get_requirements(mode="all"),
+        },
         description="The PyFunceble project behind a REST API.",
         long_description=get_long_description(),
+        long_description_content_type="text/markdown",
         author="funilrys",
         author_email="contact@funilrys.com",
         license="Apache 2.0",

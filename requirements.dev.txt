@@ -1,4 +1,3 @@
-uvicorn
 black
 flake8
 isort
