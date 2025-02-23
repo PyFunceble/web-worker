@@ -1,1 +1,1 @@
-pyfunceble-dev
+pyfunceble-dev~=4.2.29
