@@ -89,9 +89,7 @@ from pyfunceble_webworker.routes.v1.api import api_router as v1_api_router
 env_var_helper = EnvironmentVariableHelper()
 
 if not env_var_helper.set_name("PYFUNCEBLE_WORKERS_DATA_DIR").exists():
-    raise RuntimeError(
-        "Could not find PYFUNCEBLE_WORKERS_DATA_DIR environment variable."
-    )
+    env_var_helper.set_value(os.path.join(os.getcwd(), "workers_data"))
 
 pyfunceble_webworker.storage.CONFIG_DIRECTORY = env_var_helper.get_value()
 
