@@ -57,13 +57,11 @@ To manually install this project, simply run the following:
     $ git clone https://github.com/PyFunceble/web-worker.git pyfunceble-web-worker
     $ cd pyfunceble-web-worker
 
-    ## Install the version of PyFunceble you want.
-    ## Here it's the dev version of PyFunceble.
-    ## If you prefer the stable version run:
-    ##     $ pip3 install --user PyFunceble
-    $ pip3 install --user --pre PyFunceble-dev
-    $ pip3 install --user uvicorn[standard]
-    $ pip3 install --user .
+    ## Install by choosing your PyFunceble flavor.
+    ## For PyFunceble run:
+    $ pip3 install --user .[pyfunceble]
+    ## For PyFunceble-dev run:
+    $ pip3 install --user .[pyfunceble-dev]
 
 ### GitHub Packages
 
@@ -139,12 +137,12 @@ the following are available for you to use.
 If you chose to manually run this project, you are invited to use a
 `.env` file to declare your environment variables.
 
-| Name                        | Description                                                                                                        | Default Value                                                  |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
-| BACKEND_CORS_ORIGINS        | A comma-separated list of origins that should be allowed to make requests to the backend API.                      | None                                                           |
-| ALLOW_WHOIS_LOOKUP          | A boolean which tells the system if it should allow the whois lookup.                                              | False                                                          |
-| ALLOW_WHOIS_LOOKUP_PARAM    | Allows end-user to define and control if they want to use the WHOIS lookup to gather the status - when applicable. | False                                                          |
-| PYFUNCEBLE_WORKERS_DATA_DIR | The directory where the data should be stored.                                                                     | /data under the docker container, current directory otherwise. |
+| Name                        | Description                                                                                                        | Default Value                                                        |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| BACKEND_CORS_ORIGINS        | A comma-separated list of origins that should be allowed to make requests to the backend API.                      | None                                                                 |
+| ALLOW_WHOIS_LOOKUP          | A boolean which tells the system if it should allow the WHOIS lookup.                                              | False                                                                |
+| ALLOW_WHOIS_LOOKUP_PARAM    | Allows end-user to define and control if they want to use the WHOIS lookup to gather the status - when applicable. | False                                                                |
+| PYFUNCEBLE_WORKERS_DATA_DIR | The directory where the data should be stored.                                                                     | `/data` under the docker container, `${PWD}/workers_data` otherwise. |
 
 
 ### PyFunceble
@@ -159,9 +157,11 @@ that PyFunceble knows.
 
 For example:
 
-    dns:
-        server:
-            - 192.168.1.1
+```yaml
+dns:
+  server:
+    - 192.168.1.1
+```
 
 Will overwrite the DNS server used by PyFunceble with the given one.
 
