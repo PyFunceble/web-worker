@@ -1,6 +1,5 @@
-fastapi==0.115.8
+fastapi[standard]==0.115.8
 fastapi-utils==0.8.0
 inflection~=0.5.1
-pyfunceble
 requests~=2.32.3
 uvicorn[standard]~=0.34.0
