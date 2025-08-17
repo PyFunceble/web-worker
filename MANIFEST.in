@@ -10,4 +10,4 @@ include requirements.txt
 include setup.cfg
 include setup.py
 
-include Dockerfile.*
+include Containerfile.*

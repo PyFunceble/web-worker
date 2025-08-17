@@ -74,7 +74,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: Dockerfile.pyfunceble-dev
+          file: Containerfile.pyfunceble-dev
           push: true
           tags: |
             ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker-dev:latest
@@ -90,7 +90,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: Dockerfile.pyfunceble
+          file: Containerfile.pyfunceble
           push: true
           tags: |
             ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker:latest

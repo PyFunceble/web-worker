@@ -82,9 +82,9 @@ To pull the image that has been built on top of PyFunceble-dev:
 
 ### Docker (self-build)
 
-To build the Dockerfile provided, simply run or adapt the following:
+To build the Containerfile provided, simply run or adapt the following:
 
-    $ docker build -t pyfunceble_webworker -f [Dockerfile] .
+    $ docker build -t pyfunceble_webworker -f [Containerfile] .
 
 By default, this project will be built against the latest available
 version of PyFunceble. If you want to change that behavior, simply add
