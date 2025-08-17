@@ -63,8 +63,7 @@ PROJECT_DESCRIPTION: str = (
     "[PyFunceble](https://github.com/funilrys/PyFunceble) | "
     "[PyFunceble Webworker](https://github.com/PyFunceble/web-worker)\n\n"
     "Support: "
-    "[GitHub Sponsor](https://github.com/sponsors/funilrys) | "
-    "[Paypal](https://paypal.me/funilrys)\n\n"
+    "[GitHub Sponsor](https://github.com/sponsors/funilrys)\n\n"
     "Written with 💗 in 🇩🇪 by Nissar Chababy "
     "([@funilrys](https://github.com/funilrys))!"
 )
