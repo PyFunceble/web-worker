@@ -51,7 +51,6 @@ License:
     limitations under the License.
 """
 
-
 from fastapi import APIRouter, Body, Depends
 from PyFunceble import (
     DomainAndIPAvailabilityChecker,

@@ -70,5 +70,4 @@ class SyntaxStatusBase(BaseModel):
     tested_at: datetime
 
 
-class SyntaxStatus(SyntaxStatusBase):
-    ...
+class SyntaxStatus(SyntaxStatusBase): ...

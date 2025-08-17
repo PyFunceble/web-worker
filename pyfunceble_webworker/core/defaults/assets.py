@@ -79,7 +79,9 @@ FAVICON_URL: str = (
 The favicon URL of our project.
 """
 
-LOGO_URL: str = "https://github.com/PyFunceble/logo/raw/master/Green/HD/3000x1080px.png"  # noqa: E501
+LOGO_URL: str = (
+    "https://github.com/PyFunceble/logo/raw/master/Green/HD/3000x1080px.png"  # noqa: E501
+)
 """
 The logo URL of our project.
 """
