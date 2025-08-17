@@ -92,6 +92,14 @@ jobs:
             org.opencontainers.image.url=${{ github.event.repository.html_url }}
             org.opencontainers.image.source=https://github.com/${{ steps.repository_name_conversion.outputs.lowercase }}
 
+      - name: Generate artifact attestation for dev image
+        id: attest_dev
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-name: ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker
+          subject-digest: ${{ steps.push_dev.outputs.digest }}
+          push-to-registry: true
+
       - name: Push stable image to GitHub Packages
         id: push_stable
         uses: docker/build-push-action@v6
@@ -115,12 +123,4 @@ jobs:
         with:
           subject-name: ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker-dev
           subject-digest: ${{ steps.push_stable.outputs.digest }}
-          push-to-registry: true
-
-      - name: Generate artifact attestation for dev image
-        id: attest_dev
-        uses: actions/attest-build-provenance@v2
-        with:
-          subject-name: ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker
-          subject-digest: ${{ steps.push_dev.outputs.digest }}
           push-to-registry: true
