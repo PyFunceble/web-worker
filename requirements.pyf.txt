@@ -1,1 +1,1 @@
-pyfunceble-dev~=4.2.28
+pyfunceble-dev~=4.3.0
