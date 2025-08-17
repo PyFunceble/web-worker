@@ -53,7 +53,8 @@ License:
 
 from typing import List
 
-from pydantic import AnyHttpUrl, BaseSettings
+from pydantic import AnyHttpUrl
+from pydantic_settings import BaseSettings
 
 
 class CoreSettings(BaseSettings):
