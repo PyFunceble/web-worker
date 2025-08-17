@@ -70,16 +70,6 @@ class SupportURL(BaseModel):
         title="GitHub Sponsort",
         description="Sponsor @funilrys on GitHub!",
     )
-    paypal: HttpUrl = Body(
-        "https://paypal.me/funilrys",
-        title="Paypal Donation",
-        description="Make a one time donation to @funilrys on PayPal!",
-    )
-    kofi: HttpUrl = Body(
-        "https://ko-fi.com/V7V3EH2Y",
-        title="Ko-Fi",
-        description="Support @funilrys on Ko-Fi!",
-    )
 
 
 class ProjectsURL(BaseModel):
