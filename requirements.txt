@@ -1,5 +1,5 @@
-fastapi[standard]==0.115.8
+fastapi[standard]==0.116.1
 fastapi-utils==0.8.0
 inflection~=0.5.1
 requests~=2.32.3
-uvicorn[standard]~=0.34.0
+uvicorn[standard]~=0.35.0
