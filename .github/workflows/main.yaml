@@ -111,7 +111,7 @@ jobs:
 
       - name: Generate artifact attestation for stable image
         id: attest_stable
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-name: ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker-dev
           subject-digest: ${{ steps.push_stable.outputs.digest }}
@@ -119,7 +119,7 @@ jobs:
 
       - name: Generate artifact attestation for dev image
         id: attest_dev
-        uses: actions/attest-build-provenance@v2
+        uses: actions/attest-build-provenance@v3
         with:
           subject-name: ghcr.io/${{ steps.repository_name_conversion.outputs.lowercase }}/web-worker
           subject-digest: ${{ steps.push_dev.outputs.digest }}
