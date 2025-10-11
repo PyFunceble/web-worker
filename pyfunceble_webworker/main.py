@@ -55,6 +55,7 @@ import importlib.resources
 import logging
 import os
 import secrets
+from contextlib import asynccontextmanager
 
 import inflection
 import PyFunceble.facility
@@ -125,12 +126,23 @@ pyfunceble_config_loader.custom_config = Merge(
 pyfunceble_config_loader.start()
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await periodic_data_update()
+    await periodic_location_update()
+
+    yield
+
+    cleanup_data_dir()
+
+
 app = FastAPI(
     title=assets_defaults.PROJECT_NAME,
     description=assets_defaults.PROJECT_DESCRIPTION,
     version=__version__,
     docs_url=None,
     redoc_url=None,
+    lifespan=lifespan,
 )
 
 
@@ -190,18 +202,18 @@ def custom_openapi():
 app.openapi = custom_openapi
 
 
-@app.on_event("shutdown")
 def cleanup_data_dir() -> None:
     """
     Cleanup our data directory on shutdown.
     """
 
+    logging.info("Starting to cleanup %s", PyFunceble.storage.CONFIG_DIRECTORY)
     DirectoryHelper(PyFunceble.storage.CONFIG_DIRECTORY).delete()
+    logging.info("Finished to cleanup %s", PyFunceble.storage.CONFIG_DIRECTORY)
 
 
-@app.on_event("startup")
 @repeat_every(seconds=60 * 60 * 24, wait_first=False)
-def periodic_data_update() -> None:
+async def periodic_data_update() -> None:
     """
     Process a periodic update of PyFunceble internal files.
     """
@@ -226,9 +238,8 @@ def periodic_data_update() -> None:
     logging.info("Finished to update PyFunceble's IANA dataset.")
 
 
-@app.on_event("startup")
 @repeat_every(seconds=60 * 70, wait_first=False, raise_exceptions=True)
-def periodic_location_update():
+async def periodic_location_update():
     """
     Process a periodic update of our location.
     """
