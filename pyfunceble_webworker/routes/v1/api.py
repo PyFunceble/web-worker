@@ -107,8 +107,8 @@ def root(request: Request) -> Links:
 
     return Links(
         documentation=DocumentationURL(
-            swagger_ui=request.url_for("custom_doc"),
-            redoc=request.url_for("custom_redoc"),
+            swagger_ui=str(request.url_for("custom_doc")),
+            redoc=str(request.url_for("custom_redoc")),
         ),
         projects=ProjectsURL(),
         support=SupportURL(),
