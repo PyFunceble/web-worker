@@ -22,7 +22,7 @@ jobs:
           - "3.13"
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         name: Clone repository
 
       - name: Set up Python ${{ matrix.python_version }}
@@ -51,7 +51,7 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Get project version
         run: echo "WEB_WORKER_VERSION=$(python setup.py --version)" >> $GITHUB_ENV
