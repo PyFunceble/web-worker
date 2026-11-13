@@ -1,4 +1,4 @@
-fastapi[standard]==0.162.2
+fastapi[standard]==0.162.7
 fastapi-utils==0.8.0
 inflection~=0.5.1
 requests~=2.34.2
